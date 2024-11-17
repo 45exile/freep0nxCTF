@@ -1,4 +1,4 @@
-Web - Pizza Paradise
+**Web - Pizza Paradise**
 
 Pour commencer, on pense à regarder le /robots.txt 
 
@@ -36,7 +36,7 @@ Cela fonctionne ! Pour le flag, on le trouve en affichant le code source de la p
 
 ![test](Images/20241116211740.png)
 
-Web - BioCorp
+**Web - BioCorp**
 
 Pour ce challenge, un fichier .zip contenant le code source du site est fourni.
 
@@ -64,7 +64,7 @@ Rien de très compliqué ici. On peut ensuite afficher le flag
 
 ![test](Images/20241116223522.png)
 
-Web - Cat Club
+**Web - Cat Club**
 
 Pour ce challenge, un fichier .zip contenant le code source du site est fourni.
 
@@ -109,7 +109,7 @@ Trouver le flag devient ensuite une formalité
 
 ![test](Images/20241116215724.png)
 
-Web - Fruitables
+**Web - Fruitables**
 
 Ici, aucun code source n’est fourni, donc j'ai dû tâtonner. Avec gobuster, j’ai trouvé un répertoire intéressant 
 
@@ -146,3 +146,5 @@ En analysant la requête dans Burp Suite, je change l'extension en .jpg, ajoute 
 ![test](Images/20241116221318.png) Il ne reste qu’à afficher le flag 
 
 ![test](Images/20241116221410.png)
+
+By ognon
