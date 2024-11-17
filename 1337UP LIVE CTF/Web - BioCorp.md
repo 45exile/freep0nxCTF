@@ -42,8 +42,9 @@ On trouve un endpoint intéressant ici :
 
 ![test](Images/20241116214456.png)
 
-Avec ces informations, on forge un JWT avec l'algorithme HS256 et choisit un username. Testons avec #{9*9} ! ! 
-[test](Images/20241116214654.png)
+Avec ces informations, on forge un JWT avec l'algorithme HS256 et choisit un username. Testons avec #{9*9} ! 
+
+![test](Images/20241116214654.png)
 
 Cela fonctionne ! 
 
