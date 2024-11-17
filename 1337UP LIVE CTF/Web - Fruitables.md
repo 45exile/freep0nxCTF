@@ -20,7 +20,9 @@ Probablement une SQLi ? Après quelques tests manuels infructueux, je lance sqlm
 
 Excellent ! 
 
-![test](Images/20241116220430.png) Une fois le mot de passe administrateur cracké, j’accède au dashboard avec une fonctionnalité d’upload.
+![test](Images/20241116220430.png) 
+
+Une fois le mot de passe administrateur cracké, j’accède au dashboard avec une fonctionnalité d’upload.
 
 On teste d'upload un webshell, mais c'est bloqué. 
 
