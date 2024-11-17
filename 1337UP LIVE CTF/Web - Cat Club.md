@@ -10,7 +10,9 @@ Cependant, l'enregistrement n'accepte que des noms d'utilisateur contenant des c
 
 On trouve un endpoint intéressant ici : 
 
-![test](Images/20241116214439.png) et 
+![test](Images/20241116214439.png) 
+
+et 
 
 ![test](Images/20241116214456.png)
 
