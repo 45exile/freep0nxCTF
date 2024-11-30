@@ -8,6 +8,7 @@ Initial Discovery
 The site offers a login feature and a gallery displaying cat images. The username is reflected on the gallery page, suggesting a potential SSTI vulnerability:
 
 ![test](Images/20241116214032.png)
+
 However, the registration process only accepts usernames containing alphanumeric characters. The site uses JSON Web Tokens (JWT), and with the source code, it was possible to forge a custom token.
 
 Endpoint Analysis
