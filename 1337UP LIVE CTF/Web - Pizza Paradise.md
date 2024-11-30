@@ -1,3 +1,5 @@
+Web - Pizza Paradise
+
 Summary
 This challenge involved uncovering sensitive information via a misconfigured robots.txt, cracking a hashed password, and exploiting a Local File Inclusion (LFI) vulnerability to retrieve the flag.
 
