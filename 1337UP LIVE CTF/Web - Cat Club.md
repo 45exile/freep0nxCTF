@@ -1,46 +1,52 @@
 **Web - Cat Club**
 
-Pour ce challenge, un fichier .zip contenant le code source du site est fourni.
+Summary
+This challenge provided a .zip file containing the website's source code. Analyzing the code revealed vulnerabilities that allowed server-side template injection (SSTI) exploitation and subsequent flag retrieval.
 
-Le site permet de se connecter et d'afficher une galerie de chats. On remarque que notre pseudo est reflété sur cette page, ce qui nous fait penser à une possible SSTI 
+Details
+Initial Discovery
+The site offers a login feature and a gallery displaying cat images. The username is reflected on the gallery page, suggesting a potential SSTI vulnerability:
 
 ![test](Images/20241116214032.png)
+However, the registration process only accepts usernames containing alphanumeric characters. The site uses JSON Web Tokens (JWT), and with the source code, it was possible to forge a custom token.
 
-Cependant, l'enregistrement n'accepte que des noms d'utilisateur contenant des chiffres ou des lettres. En revanche, on voit que le site utilise des JWT. Avec le code source, on peut probablement en forger un...
-
-On trouve un endpoint intéressant ici : 
+Endpoint Analysis
+An interesting endpoint was identified in the source code:
 
 ![test](Images/20241116214439.png) 
 
-et 
+and
 
 ![test](Images/20241116214456.png)
 
-Avec ces informations, on forge un JWT avec l'algorithme HS256 et choisit un username. Testons avec #{9*9} !
+Using the information gathered, we forged a JWT with the HS256 algorithm, injecting the payload #{9*9} in the username field to test SSTI:
+
 ![test](Images/20241116214654.png)
 
-Cela fonctionne ! 
+The test was successful:
 
 ![test](Images/20241116214859.png)
 
-Grâce au code source, on sait que le moteur de template utilisé est PugJS, alors on utilise un payload trouvé sur HackTricks, mais aucun retour sur la page web.
+Exploitation
+The source code revealed the use of PugJS as the templating engine. Using a payload from HackTricks, we attempted further exploitation. However, there was no visible response on the web page.
 
-En testant l'exécution de la commande id : 
+To confirm execution on the server side, we tested the id command:
 
 ![test](Images/20241116215217.png)
 
-Le champ retourné est vide : 
+The returned field was empty:
 
 ![test](Images/20241116215239.png)
 
-On vérifie si la commande s'exécute côté serveur en utilisant curl pour envoyer une réponse externe. 
+We then used curl to confirm server-side execution by sending an external response:
 
 ![test](Images/20241116215537.png)
 
-Et on obtient : 
+The server successfully executed the command, and we retrieved the result:
 
 ![test](Images/20241116215517.png)
 
-Trouver le flag devient ensuite une formalité 
+Flag Retrieval
+With confirmed code execution, retrieving the flag was straightforward:
 
 ![test](Images/20241116215724.png)
