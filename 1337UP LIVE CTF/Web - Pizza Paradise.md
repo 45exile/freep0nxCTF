@@ -1,37 +1,44 @@
-Web - Pizza Paradise
+Summary
+This challenge involved uncovering sensitive information via a misconfigured robots.txt, cracking a hashed password, and exploiting a Local File Inclusion (LFI) vulnerability to retrieve the flag.
 
-Pour commencer, on pense à regarder le /robots.txt 
+Details
+Initial Discovery
+Checking the /robots.txt file revealed a hidden directory:
 
 ![test](Images/20241116210409.png)
 
-On y trouve un répertoire secret qui nous mène à une page de login 
+The hidden directory led to a login page:
 
 ![test](Images/20241116210439.png)
 
-Dans le code source de la page, on voit un fichier auth.js contenant le nom d'utilisateur et son mot de passe sous forme de hash 
+Credential Retrieval
+Examining the page source code revealed a file, auth.js, containing the username and a hashed password:
 
 ![test](Images/20241116210523.png)
 
-On crack le hash grâce au site Crackstation pour obtenir le mot de passe 
+The hash was successfully cracked using Crackstation, revealing the plaintext password:
 
 ![test](Images/20241116210634.png)
 
-On se connecte avec ce mot de passe et on arrive sur une page qui permet de télécharger des images 
+Using the recovered credentials, we logged in and gained access to a page with an image download feature:
 
 ![test](Images/20241116211115.png)
 
-En interceptant la requête, on remarque que le chemin est potentiellement vulnérable aux LFI 
+Local File Inclusion (LFI) Exploitation
+Intercepting the download request with a proxy revealed that the file path was vulnerable to LFI:
 
 ![test](Images/20241116211412.png)
 
-On commence les tests en mettant /etc/passwd 
+Initial attempts to read /etc/passwd were blocked:
 
 ![test](Images/20241116211453.png)
 
-Le chemin n'est pas autorisé, alors on tente en laissant le chemin de base /assets/images 
+
+Adjusting the file path to include the base directory /assets/images bypassed the restriction:
 
 ![test](Images/20241116211559.png)
 
-Cela fonctionne ! Pour le flag, on le trouve en affichant le code source de la page actuelle 
+Flag Retrieval
+Inspecting the source code of the current page revealed the flag:
 
 ![test](Images/20241116211740.png)
