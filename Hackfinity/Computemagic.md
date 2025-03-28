@@ -13,3 +13,5 @@ the invert of xor is xor so we do this simple script in python :
 that give us : HaaG8hf8468FAGEZ
 
 We put it in the server and bingo we got the flag
+
+By 45exile
